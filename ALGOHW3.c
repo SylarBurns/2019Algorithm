@@ -63,7 +63,7 @@ int main(){
     	gettimeofday(&time1, 0);
     	total_benefit_greedy = greedy(itemNum, items);
     	printf("Benefit of %d inputs: %f Time take: %f\n", itemNum, total_benefit_greedy, get_diff(time1, time2));
-    	fprintf(fp, "%10d %20f / %10.3f  ",itemNum, total_benefit_greedy, get_diff(time1, time2);
+    	fprintf(fp, "%10d %20f / %10.3f  ",itemNum, total_benefit_greedy, get_diff(time1, time2));
     	
     	gettimeofday(&time1, 0);
     	total_benefit_dynamic = dynamic(inputs[index], benefit, weight);
