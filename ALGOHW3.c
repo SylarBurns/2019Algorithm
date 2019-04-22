@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include <sys/time.h>
-#include <math.h>
+
 typedef struct item_F{
 	//item struct for fractional knapsack problem
 	int benefit;
@@ -63,12 +63,12 @@ int main(){
     	gettimeofday(&time1, 0);
     	total_benefit_greedy = greedy(itemNum, items);
     	printf("Benefit of %d inputs: %f Time take: %f\n", itemNum, total_benefit_greedy, get_diff(time1, time2));
-    	fprintf(fp, "%10d %20f / %10.3f  ",itemNum, total_benefit_greedy, round(get_diff(time1, time2)*1000)/1000.0);
+    	fprintf(fp, "%10d %20f / %10.3f  ",itemNum, total_benefit_greedy, get_diff(time1, time2);
     	
     	gettimeofday(&time1, 0);
     	total_benefit_dynamic = dynamic(inputs[index], benefit, weight);
     	printf("Benefit of %d inputs: %d Time take: %f\n", inputs[index], total_benefit_dynamic, get_diff(time1, time2));
-    	fprintf(fp, " %10d / %10.3f  ", total_benefit_dynamic, round(get_diff(time1, time2)*1000)/1000.0);
+    	fprintf(fp, "%10d / %10.3f  ", total_benefit_dynamic, get_diff(time1, time2));
 		
     	for(i=0;i<itemNum;i++){
     		benefit[i]=items[i].benefit;
@@ -77,7 +77,7 @@ int main(){
 		gettimeofday(&time1, 0);
 		total_benefit_BB = BnB(inputs[index], benefit, weight);
 		printf("Benefit of %d inputs: %d Time take: %f\n", inputs[index], total_benefit_BB, get_diff(time1, time2));
-		fprintf(fp, "  %10d / %10.3f  \n", total_benefit_BB, round(get_diff(time1, time2)*1000)/1000.0);
+		fprintf(fp, "%10d / %10.3f  \n", total_benefit_BB, get_diff(time1, time2));
 		
 		free(benefit);
 		free(weight);
