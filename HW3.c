@@ -35,7 +35,7 @@ void quickSort(struct item_F * arr, int low, int high);
 void generateItems(struct item_F * items, int itemNum);
 int main(){
 	item_F * items;
-	int inputs[6]={10, 100, 500, 1000, 3000, 5000};
+	int inputs[9]={10, 100, 500, 1000, 3000, 5000, 7000, 9000, 10000};
     int index, i, itemNum;
     int *benefit;
 	int *weight;
