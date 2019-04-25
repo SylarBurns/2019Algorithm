@@ -44,8 +44,8 @@ int main(){
     int total_benefit_BB;
     FILE * fp;
     fp =fopen("output.txt", "a");
-    fprintf(fp, "Number of | Processing time in milliseconds/ Maximun benefit value|\n");
-    fprintf(fp, "%10s %35s% 25s% 25s%\n","items","Greedy","Dynamic", "B.B");
+    fprintf(fp, "Number of |\t\t Processing time in milliseconds/ Maximun benefit value\t\t\t|\n");
+    fprintf(fp, "%10s \t\t%s\t\t%s\t\t %s \t\t|\n","items\t   |","Greedy\t","Dynamic\t", "B.B");
     for(index=0;index<sizeof(inputs)/sizeof(int);index++){
     	itemNum =inputs[index];
     	items = (item_F *)malloc(sizeof(item_F)*itemNum);
@@ -63,12 +63,12 @@ int main(){
     	gettimeofday(&time1, 0);
     	total_benefit_greedy = greedy(itemNum, items);
     	printf("Benefit of %d inputs: %f Time take: %f\n", itemNum, total_benefit_greedy, get_diff(time1, time2));
-    	fprintf(fp, "%10d %20f / %10.3f  ",itemNum, total_benefit_greedy, get_diff(time1, time2));
+    	fprintf(fp, "%10d\t   | %20f / %-10.3f\t",itemNum, total_benefit_greedy, get_diff(time1, time2));
     	
     	gettimeofday(&time1, 0);
     	total_benefit_dynamic = dynamic(inputs[index], benefit, weight);
     	printf("Benefit of %d inputs: %d Time take: %f\n", inputs[index], total_benefit_dynamic, get_diff(time1, time2));
-    	fprintf(fp, "%10d / %10.3f  ", total_benefit_dynamic, get_diff(time1, time2));
+    	fprintf(fp, "%10d / %-10.3f\t", total_benefit_dynamic, get_diff(time1, time2));
 		
     	for(i=0;i<itemNum;i++){
     		benefit[i]=items[i].benefit;
@@ -77,7 +77,7 @@ int main(){
 		gettimeofday(&time1, 0);
 		total_benefit_BB = BnB(inputs[index], benefit, weight);
 		printf("Benefit of %d inputs: %d Time take: %f\n", inputs[index], total_benefit_BB, get_diff(time1, time2));
-		fprintf(fp, "%10d / %10.3f  \n", total_benefit_BB, get_diff(time1, time2));
+		fprintf(fp, "%10d / %-10.3f\t|\n", total_benefit_BB, get_diff(time1, time2));
 		
 		free(benefit);
 		free(weight);
